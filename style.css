@@ -1,0 +1,157 @@
+/* ===================================================================
+   Estilo simples e claro para o visualizador didático de Árvore B+.
+   Nenhuma imagem, nenhum framework, apenas CSS puro.
+   =================================================================== */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+  background-color: #fafafa;
+  color: #222;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.explicacao {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+  background-color: #f0f0f0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 4px solid #888;
+}
+
+/* Pequenos "selos" coloridos usados dentro do texto explicativo,
+   para já ensinar o significado das cores antes de olhar a árvore. */
+.marcador-folha {
+  background-color: #d7f3d7;
+  border: 1px solid #2e7d32;
+  color: #2e7d32;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.marcador-interno {
+  background-color: #d6e6fb;
+  border: 1px solid #1565c0;
+  color: #1565c0;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* ---------- Área de controles (input + botões) ---------- */
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.controles label {
+  font-weight: bold;
+}
+
+#campo-chave {
+  width: 110px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+button {
+  padding: 7px 14px;
+  font-size: 14px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #dddddd;
+}
+
+#botao-demo {
+  background-color: #fff3cd;
+  border-color: #e0b03e;
+}
+
+#botao-demo:hover {
+  background-color: #ffe9a8;
+}
+
+/* ---------- Área de mensagens ---------- */
+
+#area-mensagens {
+  min-height: 20px;
+  padding: 12px 14px;
+  background-color: #fffbe6;
+  border: 1px solid #e6d47a;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ---------- Área da árvore ---------- */
+
+#area-arvore {
+  min-height: 80px;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Cada nível da árvore é uma linha (uma div "linha-nivel"),
+   com os nós daquele nível lado a lado, centralizados. */
+.linha-nivel {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+/* Caixa de um nó FOLHA: onde as chaves realmente ficam guardadas. */
+.no-folha {
+  min-width: 70px;
+  padding: 10px 12px;
+  background-color: #e8f8e8;
+  border: 2px solid #2e7d32;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Caixa de um nó INTERNO: apenas separadores, não guarda dados reais. */
+.no-interno {
+  min-width: 70px;
+  padding: 10px 12px;
+  background-color: #e8f0fc;
+  border: 2px solid #1565c0;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  text-align: center;
+}
