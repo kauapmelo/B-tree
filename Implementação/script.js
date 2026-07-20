@@ -1,10 +1,10 @@
 /* ---------------------------------------------------------------------
-   CONSTANTES DA ÁRVORE (ordem 4)
+   CONSTANTES DA ÁRVORE (ordem x)
    --------------------------------------------------------------------- */
 
-var ORDEM = 4;                                   // ordem da árvore: no máximo 4 filhos por nó
-var MAXIMO_DE_CHAVES = ORDEM - 1;                // no máximo 3 chaves por nó
-var MINIMO_DE_CHAVES = Math.ceil(ORDEM / 2) - 1; // no mínimo 1 chave por nó (exceto a raiz)
+var ORDEM = 5;                                   // ordem da árvore: no máximo x filhos por nó
+var MAXIMO_DE_CHAVES = ORDEM - 1;                // no máximo x chaves por nó
+var MINIMO_DE_CHAVES = Math.ceil(ORDEM / 2) - 1; // no mínimo x chave por nó (exceto a raiz)
 
 
 /* ---------------------------------------------------------------------
@@ -172,7 +172,7 @@ function inserir(chave) {
   // Insere a chave na folha correta, em ordem crescente.
   inserirOrdenado(folha.chaves, chave);
 
-  // Se a folha passou de 3 chaves (ficou com 4), houve OVERFLOW.
+  // Se a folha passou de x chaves (ficou com x), houve OVERFLOW.
   if (folha.chaves.length > MAXIMO_DE_CHAVES) {
     tratarOverflow(caminho);
   }
@@ -425,6 +425,11 @@ function tratarUnderflow(caminho) {
    Mostra a árvore inteira na tela, organizada por níveis (percurso em
    largura, também chamado de "busca em largura" ou BFS), usando
    apenas divs de HTML — uma linha por nível, uma caixa por nó.
+
+   Esta função é chamada automaticamente ao final de criar(), inserir(),
+   remover() e destruir(), por isso não existe um botão separado de
+   "Imprimir" na tela: a árvore exibida abaixo das mensagens já está
+   sempre atualizada.
    ===================================================================== */
 function imprimir() {
   var areaArvore = document.getElementById("area-arvore");
@@ -524,58 +529,6 @@ function botaoRemover() {
   remover(chave);
 }
 
-function botaoImprimir() {
-  imprimir();
-  mostrarMensagem("Árvore impressa por níveis.");
-}
-
 function botaoDestruir() {
   destruir();
-}
-
-
-/* =====================================================================
-   DEMONSTRAÇÃO AUTOMÁTICA
-
-   Executa, passo a passo e com uma pequena pausa entre cada passo,
-   exatamente a sequência de operações pedida como exemplo:
-
-     criar()
-     inserir(10), inserir(20), inserir(30)  -> preenchem a primeira folha
-     inserir(40)                            -> causa OVERFLOW e SPLIT da folha
-     inserir(50), inserir(60)               -> inserir(60) causa novo SPLIT
-     buscar(40)                             -> demonstra uma busca
-     remover(30)                            -> demonstra uma remoção
-     imprimir()                             -> mostra o estado final por níveis
-     destruir()                             -> apaga tudo e cria uma árvore nova
-
-   A cada passo, a árvore desenhada na tela é atualizada, para que o
-   aluno possa acompanhar visualmente cada mudança na estrutura.
-   ===================================================================== */
-function rodarDemonstracao() {
-  var passos = [
-    function () { criar(); },
-    function () { inserir(10); },
-    function () { inserir(20); },
-    function () { inserir(30); },
-    function () { inserir(40); }, // aqui acontece o primeiro overflow + split
-    function () { inserir(50); },
-    function () { inserir(60); }, // aqui acontece outro overflow + split
-    function () { buscar(40); },
-    function () { remover(30); },
-    function () { imprimir(); },
-    function () { destruir(); }
-  ];
-
-  var indicePasso = 0;
-
-  function executarProximoPasso() {
-    if (indicePasso < passos.length) {
-      passos[indicePasso](); // executa a operação deste passo
-      indicePasso = indicePasso + 1;
-      setTimeout(executarProximoPasso, 1400); // espera 1.4s e segue para o próximo passo
-    }
-  }
-
-  executarProximoPasso();
 }

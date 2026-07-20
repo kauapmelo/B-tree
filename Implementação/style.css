@@ -19,9 +19,6 @@ h2 {
   color: #444;
 }
 
-
-/* Pequenos "selos" coloridos usados dentro do texto explicativo,
-   para já ensinar o significado das cores antes de olhar a árvore. */
 .marcador-folha {
   background-color: #d7f3d7;
   border: 1px solid #2e7d32;
@@ -79,15 +76,6 @@ button:hover {
   background-color: #dddddd;
 }
 
-#botao-demo {
-  background-color: #fff3cd;
-  border-color: #e0b03e;
-}
-
-#botao-demo:hover {
-  background-color: #ffe9a8;
-}
-
 /* ---------- Área de mensagens ---------- */
 
 #area-mensagens {
@@ -109,8 +97,6 @@ button:hover {
   border-radius: 6px;
 }
 
-/* Cada nível da árvore é uma linha (uma div "linha-nivel"),
-   com os nós daquele nível lado a lado, centralizados. */
 .linha-nivel {
   display: flex;
   justify-content: center;
@@ -118,7 +104,6 @@ button:hover {
   margin-bottom: 26px;
 }
 
-/* Caixa de um nó FOLHA: onde as chaves realmente ficam guardadas. */
 .no-folha {
   min-width: 70px;
   padding: 10px 12px;
@@ -130,7 +115,6 @@ button:hover {
   text-align: center;
 }
 
-/* Caixa de um nó INTERNO: apenas separadores, não guarda dados reais. */
 .no-interno {
   min-width: 70px;
   padding: 10px 12px;
